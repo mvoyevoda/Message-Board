@@ -92,9 +92,10 @@ function deletePost($postid, $conn){
                         echo "<p>" . htmlspecialchars($comment['body']) . "</p>";
                         if ($comment['username'] === $_SESSION['username']){
                             echo 
-                                '<form action="delete_comment.php" method="POST" style="display: inline;">
+                                '<br>
+                                <form action="delete_comment.php" method="POST" style="display: inline;">
                                 <input type="hidden" name="commentid" value="' . $comment['commentid'] . '">
-                                <button class="btn" type="submit" style="color: black;"><ion-icon name="trash"></ion-icon>Delete Comment</button>
+                                <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash"></ion-icon>Delete Comment</button>
                                 </form>'; 
                         }
                         echo "</div>";

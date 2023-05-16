@@ -353,3 +353,21 @@ header {
     /*transform: scale(0);*/
     /* transition: transform .5s ease, height .2s ease; */
 }
+
+.comment {
+    height: auto;
+    width: 670px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    margin: 20px; 
+    color: white;
+}
