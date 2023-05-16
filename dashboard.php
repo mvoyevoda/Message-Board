@@ -61,8 +61,8 @@ function deletePost($postid, $conn){
         while($row = $result->fetch_assoc()) {
             echo "<div class='post'>";
             // echo "<h2>".htmlspecialchars($row['title'])."</h2>";
+            echo "<h5>" . htmlspecialchars($row['username']) . "</h5>";
             echo "<p>".htmlspecialchars($row['body'])."</p>";
-            echo "<p>Posted by: ".htmlspecialchars($row['username'])." at ".htmlspecialchars($row['created_at'])."</p>";
             //insert add comment form here
             if ($row['username'] === $_SESSION['username']){
                 echo 
@@ -76,10 +76,10 @@ function deletePost($postid, $conn){
                 <input type='hidden' name='postid' value='" . $row['postid'] . "'>
                 <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
                 <textarea name='body' placeholder='Add a comment...' required></textarea>
-                <button class='action-btn' type='submit' style='color: black';>Add Comment</button>
+                <button class='btn' type='submit' style='color: black';>Add Comment</button>
                 </form>";
             //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
-            echo "<div class='post'>";
+            echo "<div class='comments'>";
     
             // Get and display comments
             if ($comments_sql = "SELECT * FROM comments WHERE postid = " . $row['postid'] . " ORDER BY created_at DESC"){
@@ -94,16 +94,15 @@ function deletePost($postid, $conn){
                             echo 
                                 '<form action="delete_comment.php" method="POST" style="display: inline;">
                                 <input type="hidden" name="commentid" value="' . $comment['commentid'] . '">
-                                <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash"></ion-icon>Delete Comment</button>
+                                <button class="btn" type="submit" style="color: black;"><ion-icon name="trash"></ion-icon>Delete Comment</button>
                                 </form>'; 
                         }
                         echo "</div>";
                     }
                 }
-            }   
+            }  
     
-            // delete commment button (if belongs to you)
-    
+                echo "</div>";
             echo "</div>";
         
             
