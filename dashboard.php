@@ -77,7 +77,7 @@ function deletePost($postid, $conn){
                 <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
                 <textarea name='body' placeholder='Add a comment...' required></textarea>
                 <button class='btn' type='submit' style='color: black';>Add Comment</button>
-                </form>";
+                </form><br><br>";
             //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
             echo "<div class='comments'>";
     
