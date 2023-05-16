@@ -42,18 +42,18 @@ function deletePost($postid, $conn){
     <!-- <br><br><br><br> -->
     <h3 class="welcome">Hi, <?php echo htmlspecialchars($_SESSION["username"]); ?>. Welcome to our site.</h3>
 
-    <div class="wrapper">
-        <div class="add-post-box">
+    <div class="post" class="add-post">
+        <!-- <div class="post"> -->
             <h2>Add a Post</h2>
-            <form action="new_post.php" method="POST">
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="text"></ion-icon></span>
-                    <input type="text" name="body" placeholder="Type your text here" required>
-                </div>
+            <form class="" action="new_post.php" method="POST">
+                <!-- <div class="input-box"> -->
+                    <!-- <span class="icon"><ion-icon name="text"></ion-icon></span> -->
+                    <textarea class="add-post-input" name="body" placeholder="Type your text here" required></textarea>
+                <!-- </div> -->
             
                 <button type="submit" class="btn">Post</button>
             </form>
-        </div>
+        <!-- </div> -->
     </div>
 
     <?php 
@@ -75,8 +75,8 @@ function deletePost($postid, $conn){
                 "<form class='input-box' action='new_comment.php' method='POST'>
                 <input type='hidden' name='postid' value='" . $row['postid'] . "'>
                 <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
-                <textarea name='body' placeholder='Add a comment...' required></textarea>
-                <button class='btn' type='submit' style='color: black';>Add Comment</button>
+                <input type='text' name='body' placeholder='Add a comment...' required>
+                <button class='btn' type='submit'>Add Comment</button>
                 </form><br><br>";
             //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
             echo "<div class='comments'>";
