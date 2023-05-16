@@ -145,8 +145,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="stylesheet" href="styles.css">
     </head>
 
-    <body>
-
         <header>
             <h2 class="logo">Message Board</h2>
             <nav class="navigation">
@@ -156,7 +154,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </nav>
         </header>
 
-        <div class="register-box">
+    <body>
+
+        <div class="login-register">
             <h2>Registration</h2>
             <form action="register.php" method="POST">
                 <div class="input-box">

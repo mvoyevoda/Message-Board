@@ -94,8 +94,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="stylesheet" href="styles.css">
     </head>
 
-    <body>
-
         <header>
             <h2 class="logo">Message Board</h2>
             <nav class="navigation">
@@ -104,26 +102,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </nav>
         </header>
 
-        <div class="wrapper">
-            <div class="login-box">
-                <h2>Login</h2>
-                <form action="login.php" method="POST">
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="user"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" name="username" required>
-                        <label>Username</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" name="password" required>
-                        <label>Password</label>
-                    </div>
-                    <button type="submit" class="btn">Login</button>
-                    <div class="login-register">
-                        <p>Don't have an account? <a href="register.php" class="register-link">Register</a></p>
-                    </div>
-                </form>
-            </div>
+    <body>
+
+        <div class="login-register">
+            <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="user"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="register.php" class="register-link">Register</a></p>
+                </div>
+            </form>
         </div>
 
         <?php 
