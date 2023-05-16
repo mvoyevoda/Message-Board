@@ -19,7 +19,6 @@
         </header>
 
         <div class="wrapper">
-
             <div class="login-box">
                 <h2>Login</h2>
                 <form action="login.php" method="POST">
@@ -39,10 +38,12 @@
                     </div>
                 </form>
             </div>
-
-
-
         </div>
+
+        <?php 
+        echo (empty($_SESSION['errors']) ? "NO ERRORS" : $_SESSION['errors']); 
+        $_SESSION['errors'] = "";
+        ?>
 
         <script src="script.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -63,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if username is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter username.";
+        $_SESSION['errors'] = $username_err . "<br>";
     } else {
         $username = trim($_POST["username"]);
     }
@@ -70,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if password is empty
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter your password.";
+        $_SESSION['errors'] .= $password_err . "<br>";
     } else {
         $password = trim($_POST["password"]);
     }
@@ -114,10 +117,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $username_err = "No account found with that username.";
+                    $_SESSION['errors'] ="No account found with that username.";
                 }
             } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                $_SESSION['errors'] = "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
