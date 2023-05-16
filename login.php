@@ -1,56 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-euiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Message Board</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-
-    <body>
-
-        <header>
-            <h2 class="logo">Message Board</h2>
-            <nav class="navigation">
-                <a href="index.php">Home</a>
-                <a href="about.php">About</a>
-            </nav>
-        </header>
-
-        <div class="wrapper">
-            <div class="login-box">
-                <h2>Login</h2>
-                <form action="login.php" method="POST">
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="user"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" name="username" required>
-                        <label>Username</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" name="password" required>
-                        <label>Password</label>
-                    </div>
-                    <button type="submit" class="btn">Login</button>
-                    <div class="login-register">
-                        <p>Don't have an account? <a href="register.php" class="register-link">Register</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <?php 
-        echo (empty($_SESSION['errors']) ? "NO ERRORS" : $_SESSION['errors']); 
-        $_SESSION['errors'] = "";
-        ?>
-
-        <script src="script.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
-</html>
-
 <?php
 // Include config file
 require_once "db_connection.php";
@@ -133,3 +80,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-euiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Message Board</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h2 class="logo">Message Board</h2>
+            <nav class="navigation">
+                <a href="index.php">Home</a>
+                <a href="about.php">About</a>
+            </nav>
+        </header>
+
+        <div class="wrapper">
+            <div class="login-box">
+                <h2>Login</h2>
+                <form action="login.php" method="POST">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="user"><ion-icon name="person"></ion-icon></span>
+                        <input type="text" name="username" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Don't have an account? <a href="register.php" class="register-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <?php 
+        echo (empty($_SESSION['errors']) ? "NO ERRORS" : $_SESSION['errors']); 
+        $_SESSION['errors'] = "";
+        ?>
+
+        <script src="script.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
