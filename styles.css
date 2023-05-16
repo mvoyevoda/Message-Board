@@ -297,10 +297,10 @@ header {
     margin: 30px;
 }
 
-.delete-btn {
+.action-btn {
     color: black;
 }
 
-.delete-btn:hover {
+.action-btn:hover {
     cursor: pointer;
 }

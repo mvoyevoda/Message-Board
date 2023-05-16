@@ -77,13 +77,13 @@ function deletePost($postid, $conn){
                 <input type='hidden' name='postid' value='" . $row['postid'] . "'>
                 <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
                 <textarea name='body' placeholder='Add a comment...' required></textarea>
-                <button type='submit' style='color: black';>Add Comment</button>
+                <button class='action-btn' type='submit' style='color: black';>Add Comment</button>
                 </form>";
             if ($row['username'] === $_SESSION['username']){
                 echo 
                     '<form action="delete_post.php" method="POST" style="display: inline;">
                     <input type="hidden" name="postid" value="' . $row['postid'] . '">
-                    <button class="delete-btn" type="submit" style="color: black;">Delete</button>
+                    <button class="action-btn" type="submit" style="color: black;">Delete</button>
                     </form>';
             }
         
