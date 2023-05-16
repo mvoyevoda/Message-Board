@@ -70,6 +70,15 @@ function deletePost($postid, $conn){
             // echo "<h2>".htmlspecialchars($row['title'])."</h2>";
             echo "<p>".htmlspecialchars($row['body'])."</p>";
             echo "<p>Posted by: ".htmlspecialchars($row['username'])." at ".htmlspecialchars($row['created_at'])."</p>";
+            //insert add comment form here
+            //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
+            echo 
+                "<form action='add_comment.php' method='POST'>
+                <input type='hidden' name='postid' value='" . $row['postid'] . "'>
+                <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
+                <textarea name='body' placeholder='Add a comment...' required></textarea>
+                <button type='submit' style='color: black';>Add Comment</button>
+                </form>";
             if ($row['username'] === $_SESSION['username']){
                 echo 
                     '<form action="delete_post.php" method="POST" style="display: inline;">
