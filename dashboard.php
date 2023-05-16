@@ -100,8 +100,8 @@ function deletePost($postid, $conn){
                         if ($comment['username'] === $_SESSION['username']){
                             echo 
                                 '<form action="delete_comment.php" method="POST" style="display: inline;">
-                                <input type="hidden" name="postid" value="' . $row['postid'] . '">
-                                <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash-outline"></ion-icon>Delete Comment</button>
+                                <input type="hidden" name="commentid" value="' . $comment['commentid'] . '">
+                                <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash"></ion-icon>Delete Comment</button>
                                 </form>'; 
                         }
                         echo "</div>";
