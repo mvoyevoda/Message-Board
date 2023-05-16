@@ -79,16 +79,34 @@ function deletePost($postid, $conn){
                     </form>';
             }
             echo 
-                "<form class='input-box' action='add_comment.php' method='POST'>
+                "<form class='input-box' action='new_comment.php' method='POST'>
                 <input type='hidden' name='postid' value='" . $row['postid'] . "'>
                 <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
                 <textarea name='body' placeholder='Add a comment...' required></textarea>
                 <button class='action-btn' type='submit' style='color: black';>Add Comment</button>
                 </form>";
             //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
-            
-        
+            echo "<div class='post'>";
+    
+            // Get and display comments
+            if ($comments_sql = "SELECT * FROM comments WHERE postid = " . $row['postid'] . " ORDER BY created_at DESC"){
+                $comments_result = $conn->query($comments_sql);
+    
+                if ($comments_result->num_rows > 0) {
+                    while($comment = $comments_result->fetch_assoc()) {
+                        echo "<div class='comment'>";
+                        echo "<h5>" . htmlspecialchars($comment['username']) . "</h5>";
+                        echo "<p>" . htmlspecialchars($comment['body']) . "</p>";
+                        echo "</div>";
+                    }
+                }
+            }   
+    
+            // delete commment button (if belongs to you)
+    
             echo "</div>";
+        
+            
         }
     ?>
 
