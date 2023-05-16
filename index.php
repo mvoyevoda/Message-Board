@@ -9,7 +9,6 @@ $_SESSION['errors'] = "";
     <title>Message Board</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
 
         <header>
             <h2 class="logo">Message Board</h2>
@@ -19,6 +18,7 @@ $_SESSION['errors'] = "";
                 <a href="logout.php">Logout</a>
             </nav>
         </header>
+<body>
 
     <?php if (isset($_SESSION['username'])): ?>
         <?php include 'dashboard.php'; ?>

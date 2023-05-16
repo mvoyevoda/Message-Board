@@ -39,14 +39,7 @@ function deletePost($postid, $conn){
 
 ?>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body> -->
+    <!-- <br><br><br><br> -->
     <h3 class="welcome">Hi, <?php echo htmlspecialchars($_SESSION["username"]); ?>. Welcome to our site.</h3>
 
     <div class="wrapper">
