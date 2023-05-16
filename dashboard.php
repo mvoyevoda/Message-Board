@@ -8,7 +8,6 @@ $sql = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 5";
 $result = $conn->query($sql);
 
 if ($result === false) {
-    // Handle error - inform administrator, log to a file, show an error screen, etc.
     echo "Error: " . $conn->error;
 } 
 function deletePost($postid, $conn){
