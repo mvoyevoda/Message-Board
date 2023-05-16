@@ -71,21 +71,22 @@ function deletePost($postid, $conn){
             echo "<p>".htmlspecialchars($row['body'])."</p>";
             echo "<p>Posted by: ".htmlspecialchars($row['username'])." at ".htmlspecialchars($row['created_at'])."</p>";
             //insert add comment form here
-            //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
+            if ($row['username'] === $_SESSION['username']){
+                echo 
+                    '<form action="delete_post.php" method="POST" style="display: inline;">
+                    <input type="hidden" name="postid" value="' . $row['postid'] . '">
+                    <button class="action-btn" type="submit" style="color: black;">Delete Post</button>
+                    </form>';
+            }
             echo 
-                "<form action='add_comment.php' method='POST'>
+                "<form class='input-box' action='add_comment.php' method='POST'>
                 <input type='hidden' name='postid' value='" . $row['postid'] . "'>
                 <input type='hidden' name='userid' value='" . $_SESSION['id'] . "'>
                 <textarea name='body' placeholder='Add a comment...' required></textarea>
                 <button class='action-btn' type='submit' style='color: black';>Add Comment</button>
                 </form>";
-            if ($row['username'] === $_SESSION['username']){
-                echo 
-                    '<form action="delete_post.php" method="POST" style="display: inline;">
-                    <input type="hidden" name="postid" value="' . $row['postid'] . '">
-                    <button class="action-btn" type="submit" style="color: black;">Delete</button>
-                    </form>';
-            }
+            //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
+            
         
             echo "</div>";
         }

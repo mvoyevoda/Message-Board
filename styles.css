@@ -180,7 +180,7 @@ header {
     top: -5px;
 }
 
-.input-box input {
+.input-box input, .input-box textarea {
     width: 100%;
     height: 100%;
     background: transparent;
