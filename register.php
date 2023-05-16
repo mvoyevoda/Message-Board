@@ -150,7 +150,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <nav class="navigation">
                 <a href="index.php">Home</a>
                 <a href="about.php">About</a>
-                <button class="btnLogin-popup">Login</button>
             </nav>
         </header>
 
