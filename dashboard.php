@@ -97,11 +97,13 @@ function deletePost($postid, $conn){
                         echo "<div class='comment'>";
                         echo "<h5>" . htmlspecialchars($comment['username']) . "</h5>";
                         echo "<p>" . htmlspecialchars($comment['body']) . "</p>";
-                        echo 
-                        '<form action="delete_comment.php" method="POST" style="display: inline;">
-                        <input type="hidden" name="postid" value="' . $row['postid'] . '">
-                        <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash-outline"></ion-icon>Delete Comment</button>
-                        </form>';
+                        if ($comment['username'] === $_SESSION['username']){
+                            echo 
+                                '<form action="delete_comment.php" method="POST" style="display: inline;">
+                                <input type="hidden" name="postid" value="' . $row['postid'] . '">
+                                <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash-outline"></ion-icon>Delete Comment</button>
+                                </form>'; 
+                        }
                         echo "</div>";
                     }
                 }
