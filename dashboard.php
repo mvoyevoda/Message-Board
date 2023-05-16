@@ -12,7 +12,7 @@ if ($result === false) {
 } 
 function deletePost($postid, $conn){
 
-    echo "entered function";
+    // echo "entered function";
 
     // Prepare the SQL statement
     $stmt = $conn->prepare("DELETE FROM posts WHERE postid = ?");
@@ -26,43 +26,29 @@ function deletePost($postid, $conn){
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    // Execute the query
-    // $stmt->execute();
-
     // Close the statement
     $stmt->close();
-
-    // Close the connection
-    // $conn->close();
 }
 
 ?>
 
-    <!-- <br><br><br><br> -->
     <h3 class="welcome">Hi, <?php echo htmlspecialchars($_SESSION["username"]); ?>. Welcome to our site.</h3>
 
     <div class="post" class="add-post">
-        <!-- <div class="post"> -->
             <h2>Add a Post</h2>
             <form class="" action="new_post.php" method="POST">
-                <!-- <div class="input-box"> -->
                     <!-- <span class="icon"><ion-icon name="text"></ion-icon></span> -->
                     <textarea class="add-post-input" name="body" placeholder="Type your text here" required></textarea>
-                <!-- </div> -->
-            
                 <button type="submit" class="btn">Post</button>
             </form>
-        <!-- </div> -->
     </div>
 
     <?php 
         // Output data for each row
         while($row = $result->fetch_assoc()) {
             echo "<div class='post'>";
-            // echo "<h2>".htmlspecialchars($row['title'])."</h2>";
             echo "<h5>" . htmlspecialchars($row['username']) . "</h5>";
             echo "<p>".htmlspecialchars($row['body'])."</p>";
-            //insert add comment form here
             if ($row['username'] === $_SESSION['username']){
                 echo 
                     '<form action="delete_post.php" method="POST" style="display: inline;">
@@ -77,7 +63,6 @@ function deletePost($postid, $conn){
                 <input type='text' name='body' placeholder='Add a comment...' required>
                 <button class='btn' type='submit'>Add Comment</button>
                 </form><br><br>";
-            //display comments from comments table which have the same postid as $row[postid], each as a seperate card, as a column
             echo "<div class='comments'>";
     
             // Get and display comments
@@ -108,9 +93,6 @@ function deletePost($postid, $conn){
             
         }
     ?>
-
-<!-- </body>
-</html> -->
 
 <?php 
 // Close the connection

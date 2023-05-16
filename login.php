@@ -34,10 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($stmt = $conn->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_username);
-            
-            // Set parameters
-            $param_username = $username;
+            $stmt->bind_param("s", $username);
             
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
@@ -54,11 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             session_start();
                             
                             // Store data in session variables
-                            // $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
                             
-                            // Redirect user to welcome page
+                            // Redirect user to dashboard
                             header("location: index.php");
                         } else {
                             // Display an error message if password is not valid
