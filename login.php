@@ -2,6 +2,9 @@
 // Include config file
 require_once "db_connection.php";
 
+//Resume session
+session_start();
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -11,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if username is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter username.";
-        $_SESSION['errors'] = $username_err . "<br>";
+        $_SESSION['errors'] .= $username_err . "<br>";
     } else {
         $username = trim($_POST["username"]);
     }
@@ -124,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <?php 
-        echo (empty($_SESSION['errors']) ? "NO ERRORS" : $_SESSION['errors']); 
+        echo $_SESSION['errors']; 
         $_SESSION['errors'] = "";
         ?>
 

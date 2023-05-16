@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($stmt->num_rows == 1) {
                     $username_err = "This username is already taken.";
-                    $_SESSION['errors'] = $username_err . "<br>";
+                    $_SESSION['errors'] .= $username_err . "<br>";
                     // header("Location: " . $_SERVER["HTTP_REFERER"]);
                 } else {
                     $username = trim($_POST["username"]);
@@ -187,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <?php 
-        echo (empty($_SESSION['errors']) ? "NO ERRORS" : $_SESSION['errors']); 
+        echo $_SESSION['errors']; 
         $_SESSION['errors'] = "";
         ?>
 
