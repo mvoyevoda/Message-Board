@@ -98,3 +98,4 @@ function deletePost($postid, $conn){
 // Close the connection
 $conn->close();
 ?>
+<!--  -->

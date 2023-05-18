@@ -64,5 +64,5 @@ if (isset($_POST['like'])) {
 
 // Close the connection
 $conn->close();
-
 ?>
+<!--  -->
