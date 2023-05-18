@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Login</h2>
             <form action="login.php" method="POST">
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="user"><ion-icon name="person"></ion-icon></span>
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
                     <input type="text" name="username" required>
                     <label>Username</label>
                 </div>

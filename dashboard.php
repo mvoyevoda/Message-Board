@@ -53,7 +53,7 @@ function deletePost($postid, $conn){
                 echo 
                     '<form action="delete_post.php" method="POST" style="display: inline;">
                     <input type="hidden" name="postid" value="' . $row['postid'] . '">
-                    <button class="action-btn" type="submit" style="color: black;">Delete Post</button>
+                    <button type="submit" style="color: black; width: 60px; font-size:10px;">Delete Post</button>
                     </form>';
             }
             echo 
@@ -79,7 +79,7 @@ function deletePost($postid, $conn){
                                 '<br>
                                 <form action="delete_comment.php" method="POST" style="display: inline;">
                                 <input type="hidden" name="commentid" value="' . $comment['commentid'] . '">
-                                <button class="action-btn" type="submit" style="color: black;"><ion-icon name="trash"></ion-icon>Delete Comment</button>
+                                <button style="color: black; width: 40px; font-size:10px;" type="submit">Delete</button>
                                 </form>'; 
                         }
                         echo "</div>";

@@ -324,8 +324,21 @@ header {
     margin: 30px;
 }
 
+/* .action-btn {
+    color: black;
+    display: inline-block;
+    padding: 10px 20px;
+    width: 100px;
+} */
+
 .action-btn {
     color: black;
+    display: inline-block;
+    padding: 10px 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 5px;
+    line-height: 50px; 
 }
 
 .action-btn:hover {
